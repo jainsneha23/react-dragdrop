@@ -18,7 +18,7 @@ class Droppable extends React.Component {
   drop(ev) {
     ev.preventDefault();
     var dragId = ev.dataTransfer.getData('drag-id');
-    this.setState({droppedElem: this.props.dropped(dragId)});
+    this.setState({droppedElem: this.props.dropped(dragId, this.props.id)});
   }
 
   render() {
@@ -33,7 +33,8 @@ class Droppable extends React.Component {
 }
 
 Droppable.propTypes = {
-  dropped: React.PropTypes.func.isRequired
+  dropped: React.PropTypes.func.isRequired,
+  id: React.PropTypes.any.isRequired
 };
 
 export default Droppable;
